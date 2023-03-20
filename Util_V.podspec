@@ -25,7 +25,7 @@ TODO: Add long description of the pod here.
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'oauth2' => 'gfh.cynthia@icloud.com,' }
-  s.source           = { :git => 'https://github.com/oauth2/Util_V.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/CXgfh/Util_V.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '11.0'
