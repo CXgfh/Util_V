@@ -33,7 +33,7 @@
 		91798CBF12243ADB9FE970DE /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		E004108D85AEDC4AE9229CA5 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		E59F113285952F39441003A2 /* Pods_Util_V_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Util_V_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EE3999E6CCF7908AE049281A /* Util_V.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Util_V.podspec; path = ../Util_V.podspec; sourceTree = "<group>"; };
+		EE3999E6CCF7908AE049281A /* Util_V.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Util_V.podspec; path = ../Util_V.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
