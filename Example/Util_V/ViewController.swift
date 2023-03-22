@@ -13,6 +13,16 @@ class ViewController: UIViewController {
     
     var delegates = DelegateCenter<UtilDelegate>()
     
+    @UserDefaultsBacked<Bool?>(wrappedValue: nil, key: "test")
+    var test
+    
+    @UserDefaultsBacked(wrappedValue: nil, key: "5")
+    var test2: Bool?
+    
+    @UserDefaultsBacked(key: "4")
+    var test1: Bool? = nil
+    
+    
     private lazy var button: UIButton = {
         let button = UIButton(title: "test", titleColor: .blue, font: .systemFont(ofSize: 16, weight: .semibold))
         button.addTarget(self, action: #selector(Tap), for: .touchUpInside)
@@ -69,7 +79,6 @@ extension ViewController {
 //MARK: --- Transitioning ----
 extension ViewController {
     func interactiveDemo() {
-//        let vc = InteractiveDemoViewController()
         let vc = UIViewController()
         vc.view.backgroundColor = .random
         self.swipePresent(vc: vc, animated: true)
