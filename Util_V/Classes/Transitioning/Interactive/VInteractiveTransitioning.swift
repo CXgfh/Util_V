@@ -56,9 +56,12 @@ public class VInteractiveTransitioning: NSObject {
 extension VInteractiveTransitioning {
     @objc private func dissmissSwipe(_ sender: UIScreenEdgePanGestureRecognizer) {
         if sender.state == .began {
+            transitionInProgress = true
             if let vc = sender.view?.next as? UIViewController {
                 vc.dismiss(animated: true)
             }
+        } else if sender.state == .ended {
+            transitionInProgress = false
         }
     }
 }
@@ -77,14 +80,16 @@ extension VInteractiveTransitioning: UIViewControllerTransitioningDelegate {
     }
     
     public func interactionControllerForPresentation(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        if let gesture = presentedGesture {
+        if let gesture = presentedGesture,
+           transitionInProgress {
             return VInteractiveInteractive(direction: direction, gesture: gesture)
         }
         return nil
     }
     
     public func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        if let gesture = dismissedGesture {
+        if let gesture = dismissedGesture,
+           transitionInProgress {
             return VInteractiveInteractive(direction: !direction, gesture: gesture)
         }
         return nil
