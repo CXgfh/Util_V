@@ -75,6 +75,24 @@ public extension UIImage {
         return new
     }
     
+    ///增加边距
+    func newSize(insets: UIEdgeInsets,
+                 scale: CGFloat = UIScreen.main.scale) -> UIImage? {
+        let contentSize = CGSize(width: size.width + insets.left + insets.right,
+                                 height: size.height + insets.top + insets.bottom)
+        
+        UIGraphicsBeginImageContextWithOptions(contentSize,
+                                               false,
+                                               scale)
+        draw(in: CGRect(x: insets.left,
+                        y: insets.top,
+                        width: size.width,
+                        height:size.height))
+        let new = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return new
+    }
+    
     /// 裁剪图片
     func tailor(by rect: CGRect) -> UIImage? {
         var new = rect

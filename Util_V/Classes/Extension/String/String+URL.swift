@@ -57,6 +57,11 @@ public extension String {
     var createTemporaryFile: URL {
         return URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(self)
     }
+    
+    var url: URL? {
+        let path = self.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? self
+        return URL(string: path)
+    }
 }
 
 
