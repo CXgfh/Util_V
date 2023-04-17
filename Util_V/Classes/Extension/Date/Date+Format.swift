@@ -55,6 +55,13 @@ public extension Date {
         dateF.locale = .init(identifier: identifier)
         return dateF.string(from: self)
     }
+    
+    func makeString(by: String) -> String {
+        let dateF = DateFormatter()
+        dateF.dateFormat = by
+        dateF.locale = .init(identifier: identifier)
+        return dateF.string(from: self)
+    }
 }
 
 

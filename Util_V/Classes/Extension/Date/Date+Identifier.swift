@@ -10,10 +10,10 @@ import Foundation
 extension Date {
     internal var identifier: String {
         switch Bundle.main.preferredLocalizations.first {
-//        case "en":
-//            return "en_US"
-//        case "ja":
-//            return "ja_JP"
+        case "en":
+            return "en_US"
+        case "ja":
+            return "ja_JP"
         default:
             return "zh_CN"
         }

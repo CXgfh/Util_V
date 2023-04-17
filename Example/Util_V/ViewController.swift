@@ -13,6 +13,10 @@ class ViewController: UIViewController {
     
     var delegates = DelegateCenter<UtilDelegate>()
     
+    struct FileDemoModel: Codable { }
+    
+    @JS
+    
     @UserDefaultsBacked<Bool?>(wrappedValue: nil, key: "test")
     var test
     
