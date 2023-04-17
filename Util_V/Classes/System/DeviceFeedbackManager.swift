@@ -9,8 +9,8 @@ public class DeviceFeedbackManager: NSObject {
      普通短震（类似3D Touch的Pop反馈）：1520
      连续3次短震：1521
      */
-    public static func vibrationFeedback() {
-        AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+    public static func vibrationFeedback(soundID: SystemSoundID = kSystemSoundID_Vibrate) {
+        AudioServicesPlayAlertSound(soundID)
     }
     
     ///声音反馈： scoure声音地址
@@ -26,15 +26,15 @@ public class DeviceFeedbackManager: NSObject {
     }
     
     ///声音+震动反馈： scoure声音地址
-    public static func voiceAndVibrationFeedback(scoure: URL) {
-        var soundID: SystemSoundID = 0
-        AudioServicesCreateSystemSoundID(scoure as CFURL, &soundID)
+    public static func voiceAndVibrationFeedback(scoure: URL, soundID: SystemSoundID = kSystemSoundID_Vibrate) {
+        var id = soundID
+        AudioServicesCreateSystemSoundID(scoure as CFURL, &id)
         
-        AudioServicesAddSystemSoundCompletion(soundID, nil, nil, { (soundID, rawPointer) in
-            AudioServicesRemoveSystemSoundCompletion(soundID)
-            AudioServicesDisposeSystemSoundID(soundID)
+        AudioServicesAddSystemSoundCompletion(id, nil, nil, { (id, rawPointer) in
+            AudioServicesRemoveSystemSoundCompletion(id)
+            AudioServicesDisposeSystemSoundID(id)
         }, nil)
         
-        AudioServicesPlayAlertSound(soundID)
+        AudioServicesPlayAlertSound(id)
     }
 }

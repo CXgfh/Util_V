@@ -25,3 +25,28 @@ public func openSettings(parent: UIViewController,
     }))
     findTopViewController(parent)?.present(alert, animated: true)
 }
+
+public func appReview(_ appID: String) {
+    if let url =  "https://itunes.apple.com/us/app/id\(appID)?action=write-review".url {
+        UIApplication.shared.open(url)
+    }
+}
+
+public func appUpdate(_ appID: String) {
+    if let url = "https://itunes.apple.com/us/app/id\(appID)".url {
+        UIApplication.shared.open(url)
+    }
+}
+
+public func appShare(_ appID: String,
+                     _ view: UIView,
+                     _ complet: UIActivityViewController.CompletionWithItemsHandler?) {
+    if let url = "https://apps.apple.com/cn/app/id\(appID)".url {
+        let activityController = UIActivityViewController(activityItems: [url], applicationActivities: [])
+        activityController.completionWithItemsHandler = complet
+        view.viewController?.present(activityController, animated: true)
+        if let popOver = activityController.popoverPresentationController {
+            popOver.sourceView = view
+        }
+    }
+}
