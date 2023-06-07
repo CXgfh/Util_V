@@ -50,6 +50,7 @@ public extension UIImage {
         return aHashString
     }
     
+    //离散余弦变换
     private func dctMatrix(matrix: [[UInt8]])  {
         let N = 32
         var c = [Double](repeating: 1, count: 32)

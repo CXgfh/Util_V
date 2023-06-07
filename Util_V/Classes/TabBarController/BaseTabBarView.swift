@@ -1,11 +1,11 @@
 
 import UIKit
 
-class BaseTabBarView: UITabBar {
+public class BaseTabBarView: UITabBar {
     
-    private(set) var tabItems: [BaseTabBarItemView] = []
+    public private(set) var tabItems: [BaseTabBarItemView] = []
     
-    override func layoutSubviews() {
+    public override func layoutSubviews() {
         super.layoutSubviews()
         reloadContents()
     }

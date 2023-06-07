@@ -9,6 +9,8 @@ import Foundation
 
 private var bundleKey: UInt8 = 0
 
+internal var languageKey: UInt8 = 0
+
 public class AnyLanguageBundle: Bundle {
 
     public override func localizedString(forKey key: String,
@@ -35,6 +37,14 @@ public extension Bundle {
             object_setClass(Bundle.main, AnyLanguageBundle.self)
         }
 
-        objc_setAssociatedObject(Bundle.main, &bundleKey, Bundle.main.path(forResource: language, ofType:"lproj"), .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        if let path = Bundle.main.path(forResource: language, ofType:"lproj"),
+            Bundle(path: path) != nil {
+            
+            objc_setAssociatedObject(Bundle.main, &bundleKey, path, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            
+            objc_setAssociatedObject(Bundle.main, &languageKey, language, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        } else {
+            fatalError("没有创建本地化文件")
+        }
     }
 }

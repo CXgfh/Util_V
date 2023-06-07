@@ -63,7 +63,11 @@ public extension Util {
     
     ///语言
     static var appLanguage: String {
-        return Bundle.main.preferredLocalizations.first ?? ""
+        if let language = objc_getAssociatedObject(Bundle.main, &languageKey) as? String {
+            return language
+        } else {
+            return Bundle.main.preferredLocalizations.first ?? ""
+        }
     }
     
     static var bundleIdentifier: String {

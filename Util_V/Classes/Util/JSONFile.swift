@@ -13,18 +13,18 @@ public struct JSONFile<Value> {
     private let url: URL?
     private let semaphore = DispatchSemaphore(value: 1)
     
-    public init(wrappedValue: Value, fileName: String) {
+    internal init(wrappedValue: Value, fileName: String) {
         let url = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent(fileName)
         self.init(wrappedValue: wrappedValue, url: url)
     }
     
-    public init(wrappedValue: Value, url: URL?) {
+    internal init(wrappedValue: Value, url: URL?) {
         self.wrappedValue = wrappedValue
         self.url = url
     }
 }
 
-extension JSONFile where Value: Codable {
+public extension JSONFile where Value: Codable {
     init(defaultValue: Value, fileName: String) {
         let url = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent(fileName)
         if let url = url,

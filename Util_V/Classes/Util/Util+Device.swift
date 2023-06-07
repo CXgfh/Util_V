@@ -101,12 +101,7 @@ public extension Util {
         }
         
         switch deviceModel {
-        // iPhone
-        case "iPhone3,1", "iPhone3,2", "iPhone3,3":      deviceName = "iPhone 4"
-        case "iPhone4,1", "iPhone4,2", "iPhone4,3":      deviceName = "iPhone 4S"
-        case "iPhone5,1", "iPhone5,2":                   deviceName = "iPhone 5"
-        case "iPhone5,3", "iPhone5,4":                   deviceName = "iPhone 5C"
-        case "iPhone6,1", "iPhone6,2":                   deviceName = "iPhone 5S"
+//MARK:  ----- iPhone  ---
         case "iPhone7,2":                                deviceName = "iPhone 6"
         case "iPhone7,1":                                deviceName = "iPhone 6 Plus"
         case "iPhone8,1":                                deviceName = "iPhone 6S"
@@ -120,33 +115,79 @@ public extension Util {
         case "iPhone11,2":                               deviceName = "iPhone XS"
         case "iPhone11,4", "iPhone11,6":                 deviceName = "iPhone XS Max"
         case "iPhone11,8":                               deviceName = "iPhone XR"
-        
-        // ipad
+        case "iPhone12,1":                               deviceName = "iPhone 11"
+        case "iPhone12,3":                               deviceName = "iPhone 11 Pro"
+        case "iPhone12,5":                               deviceName = "iPhone 11 Pro Max"
+        case "iPhone12,8":                               deviceName = "iPhone SE 2"
+        case "iPhone13,1":                               deviceName = "iPhone 12 mini"
+        case "iPhone13,2":                               deviceName = "iPhone 12"
+        case "iPhone13,3":                               deviceName = "iPhone 12 Pro"
+        case "iPhone13,4":                               deviceName = "iPhone 12 Pro Max"
+        case "iPhone14,4":                               deviceName = "iPhone 13 mini"
+        case "iPhone14,5":                               deviceName = "iPhone 13"
+        case "iPhone14,2":                               deviceName = "iPhone 13 Pro"
+        case "iPhone14,3":                               deviceName = "iPhone 13 Pro Max"
+        case "iPhone14,6":                               deviceName = "iPhone SE 3"
+        case "iPhone14,7":                               deviceName = "iPhone 14"
+        case "iPhone14,8":                               deviceName = "iPhone 14 Plus"
+        case "iPhone15,2":                               deviceName = "iPhone 14 Pro"
+        case "iPhone15,3":                               deviceName = "iPhone 14 Pro Max"
+
+//MARK: ------- iPad ------
         case "iPad1,1", "iPad1,2":                       deviceName = "iPad 1"
         case "iPad2,1", "iPad2,2", "iPad2,3", "iPad2,4": deviceName = "iPad 2"
+        case "iPad2,5", "iPad2,6", "iPad2,7":            deviceName = "iPad mini"
         case "iPad3,1", "iPad3,2", "iPad3,3":            deviceName = "iPad 3"
         case "iPad3,4", "iPad3,5", "iPad3,6":            deviceName = "iPad 4"
-        case "iPad6,11", "iPad6,12":                     deviceName = "iPad 5"
-        case "iPad7,5", "iPad 7,6":                      deviceName = "iPad 6"
         case "iPad4,1", "iPad4,2", "iPad4,3":            deviceName = "iPad Air"
+        case "iPad4,4", "iPad4,5", "iPad4,6":            deviceName = "iPad mini 2"
+        case "iPad4,7", "iPad4,8", "iPad4,9":            deviceName = "iPad mini 3"
+        case "iPad5,1", "iPad5,2":                       deviceName = "iPad mini 4"
         case "iPad5,3", "iPad5,4":                       deviceName = "iPad Air2"
-        case "iPad2,5", "iPad2,6", "iPad2,7":            deviceName = "iPad Mini"
-        case "iPad4,4", "iPad4,5", "iPad4,6":            deviceName = "iPad Mini2"
-        case "iPad4,7", "iPad4,8", "iPad4,9":            deviceName = "iPad Mini3"
-        case "iPad5,1", "iPad5,2":                       deviceName = "iPad Mini4"
-        case "iPad6,7", "iPad6,8", "iPad7,1", "iPad7,2": deviceName = "iPad Pro 12.9-inch"
-        case "iPad7,3", "iPad7,4":                       deviceName = "iPad Pro 10.5-inch"
-        case "iPad6,3", "iPad6,4":                       deviceName = "iPad Pro 9.7-inch"
+        case "iPad6,3", "iPad6,4":                       deviceName = "iPad Pro (9.7-inch)"
+        case "iPad6,7", "iPad6,8":
+            deviceName = "iPad Pro (12.9-inch)"
+        case "iPad6,11", "iPad6,12":                     deviceName = "iPad 5"
+        case "iPad7,1", "iPad7,2":
+            deviceName = "iPad Pro 2 (12.9-inch)"
+        case "iPad7,3", "iPad7,4":                       deviceName = "iPad Pro (10.5-inch)"
+        case "iPad7,5", "iPad 7,6":                      deviceName = "iPad 6"
+        case "iPad7,11", "iPad 7,12":                      deviceName = "iPad 7"
+        case "iPad8,1", "iPad8,2", "iPad8,3", "iPad8,4":
+            deviceName = "iPad Pro (11-inch)"
+        case "iPad8,5", "iPad8,6", "iPad8,7", "iPad8,8":
+            deviceName = "iPad Pro 3 (12.9-inch)"
+        case "iPad8,9", "iPad8,10":
+            deviceName = "iPad Pro 2 (11-inch)"
+        case "iPad8,11", "iPad8,12":
+            deviceName = "iPad Pro 4 (12.9-inch)"
+        case "iPad11,1", "iPad11,2":
+            deviceName = "iPad mini 5"
+        case "iPad11,3", "iPad11,4":
+            deviceName = "iPad Ari 3"
+        case "iPad11,6", "iPad11,7":
+            deviceName = "iPad 8"
+        case "iPad12,1", "iPad12,2":
+            deviceName = "iPad 9"
+        case "iPad13,1", "iPad13,2":
+            deviceName = "iPad Ari 4"
+        case "iPad13,4", "iPad13,5", "iPad13,6", "iPad13,7":
+            deviceName = "iPad Pro 4 (11-inch)"
+        case "iPad13,8", "iPad13,9", "iPad13,10", "iPad13,11":
+            deviceName = "iPad Pro 5 (12.9-inch)"
+        case "iPad14,1", "iPad14,2":
+            deviceName = "iPad mini 6"
             
-        // iPod
-        case "iPod1,1":                                  deviceName = "iPodTouch1Gen"
-        case "iPod2,1":                                  deviceName = "iPodTouch2Gen"
-        case "iPod3,1":                                  deviceName = "iPodTouch3Gen"
-        case "iPod4,1":                                  deviceName = "iPodTouch4Gen"
-        case "iPod5,1":                                  deviceName = "iPodTouch5Gen"
-        case "iPod7,1":                                  deviceName = "iPodTouch6Gen"
+//MARK: ------ iPod --------
+        case "iPod1,1":                                  deviceName = "iPod Touch 1"
+        case "iPod2,1":                                  deviceName = "iPod Touch 2"
+        case "iPod3,1":                                  deviceName = "iPod Touch 3"
+        case "iPod4,1":                                  deviceName = "iPod Touch 4"
+        case "iPod5,1":                                  deviceName = "iPod Touch 5"
+        case "iPod7,1":                                  deviceName = "iPod Touch 6"
+        case "iPod9,1":                                  deviceName = "iPod Touch 7"
             
-        // Simulator
+// MARK : ----- Simulator --------
         case "i386", "x86_64":                           deviceName = "simulator"
         default: break
         }

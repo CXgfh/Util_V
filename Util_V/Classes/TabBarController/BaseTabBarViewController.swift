@@ -2,9 +2,9 @@
 
 import UIKit
 
-public class BaseTabBarViewController: UITabBarController {
+open class BaseTabBarViewController: UITabBarController {
     
-    private lazy var customTabBar = BaseTabBarView(frame: self.tabBar.frame)
+    public private(set) lazy var customTabBar = BaseTabBarView(frame: self.tabBar.frame)
     
     public override var selectedIndex: Int {
         didSet {
@@ -22,7 +22,7 @@ public class BaseTabBarViewController: UITabBarController {
         delegate = self
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }

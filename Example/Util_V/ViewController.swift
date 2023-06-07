@@ -15,7 +15,8 @@ class ViewController: UIViewController {
     
     struct FileDemoModel: Codable { }
     
-    @JS
+    @JSONFile<[FileDemoModel]>(defaultValue: [], fileName: "test")
+    var file
     
     @UserDefaultsBacked<Bool?>(wrappedValue: nil, key: "test")
     var test
@@ -34,17 +35,32 @@ class ViewController: UIViewController {
     }()
     
     @objc private func Tap() {
-        interactiveDemo()
+        localizedStringDemo()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addSubview(button)
         button.frame = view.frame
+        
     }
 }
 
+//MARK: --- NSLocalizedString ----
+extension ViewController {
+    func localizedStringDemo() {
+        Bundle.setLanguage("zh-Hant")
+        print(__("a"))
+        print(Util.appLanguage)
+    }
+}
 
+//MARK: --- JSONFile ----
+extension ViewController {
+    func JSONFileDemo() {
+        _file.save()
+    }
+}
 
 //MARK: --- TabBarController ----
 extension ViewController {
