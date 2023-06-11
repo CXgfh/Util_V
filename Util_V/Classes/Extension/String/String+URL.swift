@@ -21,7 +21,7 @@ import Foundation
 public extension String {
     ///创建文件夹
     var createFolder: URL? {
-        if let url = try? FileManager.default.url(for: .userDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent(self, isDirectory: true) {
+        if let url = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent(self, isDirectory: true) {
             return url
         }
         return nil
@@ -37,7 +37,7 @@ public extension String {
     
     ///创建文件
     var createFile: URL? {
-        if let url = try? FileManager.default.url(for: .userDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent(self) {
+        if let url = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent(self) {
             return url
         }
         return nil
